@@ -32,10 +32,10 @@ namespace CSSerialLibrary {
 		}
 
 		private static void DataReceivedHandler( object sender, SerialDataReceivedEventArgs e) {
-	        SerialPort sp = (SerialPort)sender;
+	        SerialPort teensy = (SerialPort) sender;
 	        // string indata = sp.ReadExisting();
 	        byte[] data = new byte[64];
-			sp.Read(data, 0, 64);
+			teensy.Read(data, 0, 64);
 	        Console.WriteLine("Data Received:");
 	        // Console.Write(indata);
 	        for (int i = 0; i < data.Length; i++) {

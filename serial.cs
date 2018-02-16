@@ -1,20 +1,16 @@
 using System;
+using System.IO.Ports;
 
 namespace CSSerialLibrary {
-	public class SerialWork {
+	public class Teensy {
 
 		public static void Main(String[] args) {
-			dothings();
-			dothings2();
+			new SerialWork("ttyS2");
 		}
 
-		public static void dothings() {
-			Console.WriteLine("This is the textchanged branch");
-			Console.WriteLine("this branch should have text changed and new method");
-		}
-
-		public static void dothings2() {
-			Console.WriteLine("Dothings2");
+		public SerialWork(string port, int baudrate) {
+			SerialPort teensy = new SerialPort(port, baudrate);
+			teensy.Open();
 		}
 	}
 }
